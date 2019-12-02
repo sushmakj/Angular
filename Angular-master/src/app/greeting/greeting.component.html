@@ -1,0 +1,14 @@
+<!-- <app-carousel></app-carousel> -->
+<h3 [ngClass]="['text-color','text-bkcolor']">{{ message }}</h3>
+<h3 [class]="textColor">{{ message|reverseString }}</h3>
+<h3 [ngClass]="[textColor,background]">{{ message }}</h3>
+<h3 [ngClass]="greetingStyle">{{ message }}</h3>
+<h3 [ngStyle]="{'color':'red','background-color':'blue'}">{{ message }}</h3><!--ngStyle collection of key value pair key is css property value is its color or anything-->
+<button (click)="sayGreet($event)">Greet</button>
+<!--[class] this is property binding using ngclass directive we can give multiple properties and ccss class to html attributes-->
+<h1  [ngStyle]="{'color':getFgColor(),'background-color':getBkColor()}">Happy Diwali</h1>
+<button class=" btn btn-primary" [ngStyle]="{'color':getFgColor(),'background-color':getBkColor()}" (click)="toggelColor()">Toggel</button><!--(click) event bindung-->
+<h3 [ngClass]="['text-color','text-bkcolor']">{{ message|uppercase }}</h3><!--Pipes are used to Format data uppercase etc-->
+<h3 [ngClass]="['text-color','text-bkcolor']">{{ message|lowercase }}</h3>
+<h3 [ngClass]="['text-color','text-bkcolor']">{{ message|titlecase }}</h3>
+<h1 appColor>{{ message }}</h1>

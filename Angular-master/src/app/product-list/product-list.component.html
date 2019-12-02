@@ -1,0 +1,32 @@
+<!--<h1>{{errorMessage}}</h1>-->
+<div class="container"><table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Brand</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr class="table-primary" *ngFor="let p of products" (click)="onSelect(p)">
+        <td [title]="p.name+ ' id'">{{p.productId}}</td>
+        <td [title]="p.name+ ' name'">{{p.name}}</td>
+        <td [title]="p.name+ ' brand'">{{p.brand}}</td>
+        <td [title]="p.name+ ' price'">{{p.price}}</td>
+    </tr>
+</tbody>
+</table></div>
+<div *ngIf="selectedProduct"><p>
+        {{selectedProduct.name}}
+        {{selectedProduct.brand}}
+        {{selectedProduct.price}}
+</p>
+<p><input [(ngModel)]="selectedProduct.name"></p></div>
+<div *ngFor="let p of products">
+    <h2><a [title]="p.name+ ' details'">{{ p.name }}</a></h2>
+    <h3>{{ p.brand }}</h3>
+    <button class="btn btn-info" (click)="Share()">Share</button>
+    <app-product-notify [parentData]="p" (notify)="notifyUser($event)"></app-product-notify>
+</div>
+<p>{{ childData }}</p>
